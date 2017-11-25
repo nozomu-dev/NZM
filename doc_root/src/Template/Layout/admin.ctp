@@ -45,6 +45,14 @@
 
       <!-- 記事コンテンツ -->
       <?= $this->Flash->render() ?>
+      <div id="adminMasterControll">
+          <span class="logined-user">
+              [ユーザー]
+          </span>
+          <?= $this->Html->link('サイトに戻る',['controller'=>'Articles','action'=>'index'])?>
+          <?= $this->Html->link('ログアウト' , ['action' => 'logout']) ?>
+      </div>
+
       <header id="adminHeader" class="admin-header">
         <h1 class="nav-title typeface">NZM admin</h1>
         <nav>
@@ -53,20 +61,19 @@
             <li>
                 <?= $this->Html->link('記事管理',['action'=>'articleList'])?>
                 <ul>
-                    <li><?= $this->Html->link('記事一覧', ['action'=>'viewArticles'])?></li>
                     <li><?= $this->Html->link('新規登録', ['action'=>'addArticles'])?></li>
+                    <li><?= $this->Html->link('記事一覧', ['action'=>'viewArticles'])?></li>
                 </ul>
             </li>
             <li>
                 <?= $this->Html->link('ユーザー管理',['action'=>'userList'])?>
                 <ul>
-                    <li><?= $this->Html->link('ユーザー一覧',['action'=>'viewUsers'])?></li>
                     <li><?= $this->Html->link('新規登録',['action'=>'addUser'])?></li>
+                    <li><?= $this->Html->link('ユーザー一覧',['action'=>'viewUsers'])?></li>
                 </ul>
             </li>
             <li><?= $this->Html->link('サイト設定',['action'=>'config'])?></li>
           </ul>
-          <?= $this->Html->link('サイトに戻る',['controller'=>'Articles','action'=>'index'],['class'=>'to-front'])?>
         </nav>
       </header>
 
