@@ -1,0 +1,38 @@
+
+.no-padding {
+  padding: 0;
+}
+
+.naked {
+  padding: 0;
+  margin: 0;
+  &.list {
+    list-style-type: none;
+  }
+}
+
+.brand-typeface {
+  font-family: $brand-typeface;
+  letter-spacing: .15em;
+}
+
+.ellipsis {
+  color: #ddd;
+  margin-left: 5px;
+}
+
+
+
+.activate {
+  transition: $default-transition;
+  &.primal {
+    &:hover {
+      background-color: $brand-primary-active;
+    }
+  }
+  &.basic {
+    &:hover {
+      background-color: $base-color-active;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+#gNav {
+  height: 100vh;
+  background-color: #00A168;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
+  color: #fff; }
+  #gNav .go-home a {
+    min-height: 100px;
+    height: 20vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%; }
+    #gNav .go-home a img {
+      margin: 0 auto; }
+  #gNav .archive-nav .archive-category-list {
+    list-style-type: none;
+    width: 100%;
+    height: 70vh;
+    display: table; }
+    #gNav .archive-nav .archive-category-list li {
+      width: 100%;
+      height: 20%;
+      display: table-row; }
+      #gNav .archive-nav .archive-category-list li a {
+        color: #fefefe;
+        text-decoration: none;
+        display: table;
+        width: 100%;
+        height: 100%; }
+        #gNav .archive-nav .archive-category-list li a:hover {
+          background-color: #01C17D; }
+        #gNav .archive-nav .archive-category-list li a .list-box {
+          height: 100%;
+          display: table-cell;
+          vertical-align: middle; }
+          #gNav .archive-nav .archive-category-list li a .list-box .nav-label {
+            margin-bottom: 0;
+            font-family: "Lato", sans-serif;
+            font-size: 14px;
+            letter-spacing: .15em; }
+          #gNav .archive-nav .archive-category-list li a .list-box .nav-ruby {
+            font-size: 11px; }
+  #gNav .copyright {
+    height: 10vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center; }
+    #gNav .copyright a {
+      margin: 0 auto;
+      color: #fff; }
+
+#contentsBlock {
+  background-color: #fefefe;
+  border-right: 1px solid #efefef; }

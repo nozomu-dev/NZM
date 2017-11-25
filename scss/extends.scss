@@ -1,0 +1,108 @@
+@import 'variables';
+
+#gNav {
+  position: fixed !important;
+  z-index: 1;
+  width: 13%;
+  background-color: $brand-primary;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  color: #fff;
+  .go-home {
+    a {
+      min-height: 100px;
+      height: 20vh;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      img {
+        margin: 0 auto;
+      }
+    }
+  }
+  .archive-nav {
+    .archive-category-list {
+      list-style-type: none;
+      width: 100%;
+      height: 73vh;
+      display: table;
+      li {
+        width: 100%;
+        height: 20%;
+        display: table-row;
+        a {
+          color: $base-color;
+          text-decoration: none;
+          display: table;
+          width: 100%;
+          height: 100%;
+          &:hover {
+            background-color: $brand-primary-active;
+          }
+          .list-box {
+            height: 100%;
+            display: table-cell;
+            vertical-align: middle;
+            .nav-label {
+              margin-bottom: 0;
+              font-family: $brand-typeface;
+              font-size: 12px;
+              letter-spacing: .15em;
+            }
+            .nav-ruby {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .copyright {
+    height: 7vh;
+    background-color: $brand-primary-deep;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    a {
+      margin: 0 auto;
+      color: #fff;
+      &:hover {
+        color: $brand-primary-active;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+#contentsBlock {
+  width: 60%;
+  background-color: $base-color;
+  border-right: $border-primary;
+
+}
+
+#footerBlock {
+  position: fixed !important;
+  z-index: 1;
+  top: 0  ;
+  right: 0;
+  .footer--block__introduce{
+    border-bottom: $border-primary;
+    padding-bottom: $default-space-size;
+    .footer--block__image {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .footer--block__imagecaption {
+      padding: $default-space-size;
+      font-size: 12px;
+      color: #999;
+    }
+    .footer--block__btn {
+      margin: $default-space-size 0;
+      text-align: center;
+    }
+  }
+}

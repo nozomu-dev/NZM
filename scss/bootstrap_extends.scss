@@ -1,0 +1,47 @@
+@import "bootstrap_variables";
+@import "../bower_components/bootstrap/scss/bootstrap";
+@import "variables";
+
+/*=========================
+COMPONENTS
+=========================*/
+
+.btn {
+  transition: $default-transition;
+  font-size: 14px;
+  border: none;
+  border-radius: 50px;
+  &.btn-full {
+    @extend .col-md-12;
+  }
+  &.btn-primary {
+    background-color: $brand-primary;
+    border: 2px solid $brand-primary-active;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+    &:hover {
+      background-color: $brand-primary-active;
+    }
+  }
+  &.btn-default {
+    background-color: #fcfcfc;
+    border: $border-primary;
+    color: #aaa;
+    &:hover {
+      background-color: #f7f7f7;
+    }
+  }
+}
+
+/*=========================
+GRID LAYOUTS
+=========================*/
+
+.content--block {
+  @extend .row;
+  .content--block__title {
+    @extend .col-md-10;
+  }
+  .content--block__text {
+    @extend .col-md-12;
+  }
+}
