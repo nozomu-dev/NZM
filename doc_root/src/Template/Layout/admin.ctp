@@ -47,7 +47,7 @@
       <?= $this->Flash->render() ?>
       <div id="adminMasterControll">
           <span class="logined-user">
-              [ユーザー]
+              <?= $this->request->session()->read('Auth.User.username') ?>
           </span>
           <?= $this->Html->link('サイトに戻る',['controller'=>'Articles','action'=>'index'])?>
           <?= $this->Html->link('ログアウト' , ['action' => 'logout']) ?>
@@ -59,15 +59,15 @@
           <ul class="naked list">
             <li><?= $this->Html->link('データ分析',['action'=>'index'])?></li>
             <li>
-                <?= $this->Html->link('記事管理',['action'=>'articleList'])?>
-                <ul>
+                <a href="#menuArticles" data-toggle="collapse">記事</a>
+                <ul id="menuArticles" class="collapse">
                     <li><?= $this->Html->link('新規登録', ['action'=>'addArticles'])?></li>
                     <li><?= $this->Html->link('記事一覧', ['action'=>'viewArticles'])?></li>
                 </ul>
             </li>
             <li>
-                <?= $this->Html->link('ユーザー管理',['action'=>'userList'])?>
-                <ul>
+                <a href="#menuUsers" data-toggle="collapse">ユーザー</a>
+                <ul id="menuUsers" class="collapse">
                     <li><?= $this->Html->link('新規登録',['action'=>'addUser'])?></li>
                     <li><?= $this->Html->link('ユーザー一覧',['action'=>'viewUsers'])?></li>
                 </ul>
