@@ -69,7 +69,6 @@ class AdminController extends AppController
     public function login()
     {
         $this->set('users', $this->Users->find('all'));
-        $this->Auth->flash('ユーザー名とパスワードを入力してログインしてください。');
 
         if($this->request->is('POST')) {
             $user = $this->Auth->identify();
