@@ -1,15 +1,13 @@
 <!-- File:src/Template/Users/add.ctp -->
+<div id="articleList" class="user-list admin-display">
+  <h1 class="controll-title">ユーザーを追加する</h1>
+  <p class="controll-caption">ユーザーを新規登録します。</p>
 
-<div class="users form">
-  <?= $this->Form->create($user) ?>
-  <fieldset>
-    <legend><?= __('ユーザーを登録する') ?></legend>
-    <?= $this->Form->input('username')?>
-    <?= $this->Form->input('password')?>
-    <?= $this->Form->input('role',[
-      'options' => ['admin' => '管理者' , 'author' => '編集者']
-      ])?>
-  </fieldset>
-  <?= $this->Form->button(__('登録する'))?>
-  <?= $this->Form->end() ?>
+  <?= $this->Flash->render('auth') ?>
+
+  <div class="edit--block">
+    <?= $this->element('form/users', ['btn_text'=>'ユーザーを追加する']) ?>
+  </div>
+
+  <?= $this->Html->link('一覧へ戻る',['action'=>'viewUsers'])?>
 </div>
