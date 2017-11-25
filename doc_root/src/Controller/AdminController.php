@@ -44,24 +44,58 @@ class AdminController extends AppController
     public function beforeFilter( Event $event )
     {
         parent::beforeFilter($event);
-        $this->Auth->allow(['add','logout','view']);
+
+        //許可したアクション以外はログインページにリダイレクト
+        $this->Auth->allow(['addUser', 'logout', 'view']);
         $this->Auth->loginError = "パスワードが違います";
     }
 
-    //「Users」「articles」テーブルを読み込み、一覧ページを定義
+
+    /*
+    ** TODO ダシュボードを設計
+    */
+
     public function index()
     {
         $this->set('users',$this->Users->find('all'));
         $this->set('articles',$this->Articles->find('all'));
     }
 
-    //「Users」テーブルから「id」を取得、詳細ページを定義
-    public function view()
+
+    /*
+    ** ログイン関係
+    */
+
+    public function login()
+    {
+        $this->set('users', $this->Users->find('all'));
+        $this->Auth->flash('ユーザー名とパスワードを入力してログインしてください。');
+
+        if($this->request->is('POST')) {
+            $user = $this->Auth->identify();
+            if($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error(__('IDかパスワードが認識できません'));
+        }
+        $this->render(null, 'login');
+    }
+
+    public function logout()
+    {
+        $this->Flash->success(__('ログアウトしました'));
+        return $this->redirect($this->Auth->logout());
+    }
+
+
+    /*
+    ** ユーザー管理画面
+    */
+
+    public function viewUsers()
     {
         $this->set('users',$this->Users->find('all'));
-
-        $user = $this->Users->get($id);
-        $this->set(compact('user'));
     }
 
     //ユーザーの登録関数、登録画面を定義
@@ -79,27 +113,24 @@ class AdminController extends AppController
         $this->set('user',$user);
     }
 
-    //ログイン画面を表示
-    public function login()
+    public function editUser($id = null)
     {
-        $this->set('users',$this->Users->find('all'));
-
-        if($this->request->is('POST')) {
-            $user = $this->Auth->identify();
-            if($user) {
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
+        $user = $this->Users->get($id);
+        if($this->request->is(['POST','put'])){
+            $this->Users->patchEntity($user,$this->request->data);
+            if($this->Users->save($user)){
+                $this->Flash->success(__('ユーザーの編集が完了しました。'));
+                return $this->redirect(['action'=>'userList']);
             }
-            $this->Flash->error(__('IDかパスワードが認識できません'));
+            $this->Flash->error(__('エラーが発生しました。'));
         }
-        $this->render(null,'login');
+        $this->set('user',$user);
     }
 
-    public function logout()
-    {
-        $this->Flash->success(__('ログアウトしました'));
-        return $this->redirect($this->Auth->logout());
-    }
+
+    /*
+    ** 記事管理画面
+    */
 
     public function viewArticles()
     {
@@ -135,24 +166,8 @@ class AdminController extends AppController
         $this->set('article',$article);
     }
 
-    public function viewUsers()
-    {
-        $this->set('users',$this->Users->find('all'));
-    }
 
-    public function editUser($id = null)
-    {
-        $user = $this->Users->get($id);
-        if($this->request->is(['POST','put'])){
-            $this->Users->patchEntity($user,$this->request->data);
-            if($this->Users->save($user)){
-                $this->Flash->success(__('ユーザーの編集が完了しました。'));
-                return $this->redirect(['action'=>'userList']);
-            }
-            $this->Flash->error(__('エラーが発生しました。'));
-        }
-        $this->set('user',$user);
-    }
+
 
 }
 

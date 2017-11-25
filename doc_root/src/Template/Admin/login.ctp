@@ -9,6 +9,6 @@
 </div>
 
 <div class="to-add">
-  <?= $this->Html->link('新規登録',['action'=>'add']) ?>
+  <?= $this->Html->link('新規登録', ['action'=>'addUser']) ?>
   <?= $this->Html->link('サイトへ戻る',['controller'=>'Articles','action'=>'index'])?>
 </div>
