@@ -50,8 +50,20 @@
         <nav>
           <ul class="naked list">
             <li><?= $this->Html->link('データ分析',['action'=>'index'])?></li>
-            <li><?= $this->Html->link('記事管理',['action'=>'articleList'])?></li>
-            <li><?= $this->Html->link('ユーザー管理',['action'=>'userList'])?></li>
+            <li>
+                <?= $this->Html->link('記事管理',['action'=>'articleList'])?>
+                <ul>
+                    <li><?= $this->Html->link('記事一覧', ['action'=>'viewArticles'])?></li>
+                    <li><?= $this->Html->link('新規登録', ['action'=>'addArticles'])?></li>
+                </ul>
+            </li>
+            <li>
+                <?= $this->Html->link('ユーザー管理',['action'=>'userList'])?>
+                <ul>
+                    <li><?= $this->Html->link('ユーザー一覧',['action'=>'viewUsers'])?></li>
+                    <li><?= $this->Html->link('新規登録',['action'=>'addUser'])?></li>
+                </ul>
+            </li>
             <li><?= $this->Html->link('サイト設定',['action'=>'config'])?></li>
           </ul>
           <?= $this->Html->link('サイトに戻る',['controller'=>'Articles','action'=>'index'],['class'=>'to-front'])?>

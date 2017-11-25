@@ -9,7 +9,7 @@
     <div class="content--block__wrap">
       <figure class="content--block__image eycatch"><img src="" alt=""></figure>
       <h1 class="content--block__title title">
-        <?= $this->Html->link($article->title,['action'=>'articleEdit',$article->id]) ?>
+        <?= $this->Html->link($article->title,['action'=>'editArticle',$article->id]) ?>
       </h1>
       <p class="content--block__text">
         <?= $this->Text->truncate($article->content,200,array('ellipsis'=>'<span class="ellipsis">…</span>','exact'=>true)) ?>
