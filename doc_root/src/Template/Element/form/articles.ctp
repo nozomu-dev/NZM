@@ -7,6 +7,7 @@
 
     echo $this->Form->create($article,['class'=>'form admin']);
     echo $this->Form->input('title', ['default'=> '', 'placeholder'=> 'タイトルを入力してください']);
+    echo $this->Form->input('category', ['type'=> 'select', 'options'=> ['開発', 'デザイン']]);
     echo $this->Form->input('content', ['id'=> 'editor']);
     echo $this->Form->button($btn_text ,['class'=>'btn btn-primary']);
     echo $this->Form->end();
