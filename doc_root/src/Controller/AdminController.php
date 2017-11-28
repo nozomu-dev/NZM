@@ -142,10 +142,12 @@ class AdminController extends AppController
         if($this->request->is('POST')){
                 $this->request->data['Articles']['user_id'] = $this->Auth->user('id');
                 $article = $this->Articles->patchEntity($article, $this->request->data);
+
                 if($this->Articles->save($article)){
                     $this->Flash->success(__('記事の投稿が完了しました。'));
                     return $this->redirect(['action' => 'index']);
                 }
+
                 $this->Flash->error(__('投稿でエラーが発生しました。'));
         }
         $this->set('article',$article);
@@ -169,5 +171,4 @@ class AdminController extends AppController
 
 
 }
-
 ?>
