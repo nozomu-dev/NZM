@@ -19,10 +19,7 @@
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?= $cakeDescription ?>:
-        <?= $this->fetch('title') ?>
-    </title>
+
     <?= $this->Html->meta('icon') ?>
 
     <!-- <?= $this->Html->css('bootstrap_extends.css') ?>-->
@@ -42,20 +39,25 @@
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet">
 </head>
-<body class="base-template">
+<body id="adminBody" class="base-template">
 
       <!-- 記事コンテンツ -->
       <?= $this->Flash->render() ?>
       <div id="adminMasterControll">
-          <span class="logined-user">
-              <?= $this->request->session()->read('Auth.User.username') ?>
-          </span>
-          <?= $this->Html->link('サイトに戻る',['controller'=>'Articles','action'=>'index'])?>
-          <?= $this->Html->link('ログアウト' , ['action' => 'logout']) ?>
+          <div class="admin-master__info">
+              <img class="logo" src="/doc_root/webroot/img/logo/crocodile-wht.svg" alt="" width="20">
+              <span class="logined-user">
+                  User :
+                  <?= $this->request->session()->read('Auth.User.username') ?>
+              </span>
+          </div>
+          <div class="admin-master__menu">
+              <?= $this->Html->link('サイトに戻る',['controller'=>'Articles','action'=>'index'])?>
+              <?= $this->Html->link('ログアウト' , ['action' => 'logout']) ?>
+          </div>
       </div>
 
-      <header id="adminHeader" class="admin-header">
-        <h1 class="nav-title typeface">NZM admin</h1>
+      <header id="adminSidebar" class="admin-sidebar">
         <nav>
           <ul class="naked list">
             <li><?= $this->Html->link('データ分析',['action'=>'index'])?></li>
@@ -78,12 +80,14 @@
         </nav>
       </header>
 
-      <div id="contentsBlock" class="archive-index">
+      <div id="adminBodyBlock" class="archive-index">
           <?= $this->fetch('content') ?>
       </div>
       <!-- //記事コンテンツ -->
 
 
   </div><!-- // column-wrap -->
+
+  <?= $this->Html->script('admin.utils.js') ?>
 </body>
 </html>
